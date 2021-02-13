@@ -6,7 +6,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
   app.quit();
 }
 
-require('electron-reload')(__dirname);
+// require('electron-reload')(__dirname);
 
 const createWindow = () => {
   // Create the browser window.
@@ -15,6 +15,7 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
+      enableRemoteModule: true,
     },
   });
 
