@@ -91,7 +91,19 @@ function handleDataAvailable(e) {
 
 // Saves the video file on stop
 async function handleStop(e) {
+    const blob = new Blob(recordedChunks, {
+        type: 'video/webm; codecs=vp9'
+    });
 
-    console.log("stopped")
+    const buffer = Buffer.from(await blob.arrayBuffer());
+
+    const { filePath } = await dialog.showSaveDialog({
+        buttonLabel: 'Save video',
+        defaultPath: `vid-${Date.now()}.webm`
+    });
+
+    if (filePath) {
+        writeFile(filePath, buffer, () => console.log('video saved successfully!'));
+    }
 }
 
