@@ -1,5 +1,5 @@
 # ScreenCapper
-An electron app to clip short screen recordings
+An cross-platform app to clip screen recordings and save them to a local directory.
 
 To run locally:
 - CD into ScreenCapper
